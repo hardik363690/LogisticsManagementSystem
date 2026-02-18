@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compound Interest Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+<script>
+window.onload = function () {
+
+    const form = document.forms["ciForm"];
+
+    const principal = form["principal"];
+    const rate = form["rate"];
+    const months = form["months"];
+
+    const pError = document.getElementById("pError");
+    const rError = document.getElementById("rError");
+    const mError = document.getElementById("mError");
+
+    // Patterns
+    const numberDecimal = /^[0-9]+(\.[0-9]+)?$/;
+    const onlyInteger = /^[0-9]+$/;
+    const alphabetPattern = /[a-zA-Z]/;
+
+    // ---------- PRINCIPAL ----------
+    principal.addEventListener("input", function () {
+
+        let value = this.value.trim();
+
+        if (value === "") {
+            pError.innerHTML = "Principal is required";
+            this.classList.add("invalid");
+        }
+        else if (alphabetPattern.test(value)) {
+            pError.innerHTML = "Alphabets are not allowed";
+            this.classList.add("invalid");
+        }
+        else if (!numberDecimal.test(value)) {
+            pError.innerHTML = "Only valid positive numbers allowed";
+            this.classList.add("invalid");
+        }
+        else if (parseFloat(value) <= 0) {
+            pError.innerHTML = "Value must be greater than zero";
+            this.classList.add("invalid");
+        }
+        else {
+            pError.innerHTML = "";
+            this.classList.remove("invalid");
+        }
+    });
+
+    // ---------- RATE ----------
+    rate.addEventListener("input", function () {
+
+        let value = this.value.trim();
+
+        if (value === "") {
+            rError.innerHTML = "Rate is required";
+            this.classList.add("invalid");
+        }
+        else if (alphabetPattern.test(value)) {
+            rError.innerHTML = "Alphabets are not allowed";
+            this.classList.add("invalid");
+        }
+        else if (!numberDecimal.test(value)) {
+            rError.innerHTML = "Only valid positive numbers allowed";
+            this.classList.add("invalid");
+        }
+        else if (parseFloat(value) <= 0) {
+            rError.innerHTML = "Value must be greater than zero";
+            this.classList.add("invalid");
+        }
+        else {
+            rError.innerHTML = "";
+            this.classList.remove("invalid");
+        }
+    });
+
+    // ---------- MONTHS ----------
+    months.addEventListener("input", function () {
+
+        let value = this.value.trim();
+
+        if (value === "") {
+            mError.innerHTML = "Months is required";
+            this.classList.add("invalid");
+        }
+        else if (alphabetPattern.test(value)) {
+            mError.innerHTML = "Alphabets are not allowed";
+            this.classList.add("invalid");
+        }
+        else if (!onlyInteger.test(value)) {
+            mError.innerHTML = "Only positive integers allowed";
+            this.classList.add("invalid");
+        }
+        else if (parseInt(value) <= 0) {
+            mError.innerHTML = "Value must be greater than zero";
+            this.classList.add("invalid");
+        }
+        else {
+            mError.innerHTML = "";
+            this.classList.remove("invalid");
+        }
+    });
+
+    // ----------- PREVENT SUBMIT -----------
+    form.addEventListener("submit", function (e) {
+
+        // Force re-check
+        principal.dispatchEvent(new Event("input"));
+        rate.dispatchEvent(new Event("input"));
+        months.dispatchEvent(new Event("input"));
+
+        if (
+            principal.classList.contains("invalid") ||
+            rate.classList.contains("invalid") ||
+            months.classList.contains("invalid")
+        ) {
+            e.preventDefault();
+            alert("Please correct all errors before submitting!");
+        }
+
+    });
+
+};
+</script>
+
+
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Compound Interest Calculator</h2>
+
+    <form name="ciForm" action="CompoundServlet" method="post">
+
+        <label>Principal Amount (P)</label>
+        <input type="text" name="principal" >
+        <div id="pError" class="error"></div>
+
+        <label>Annual Interest Rate (%)</label>
+        <input type="text" name="rate">
+        <div id="rError" class="error"></div>
+
+        <label>Number of Months</label>
+        <input type="text" name="months">
+        <div id="mError" class="error"></div>
+
+        <label>Compound Interval</label>
+        <select  name="interval">
+            <option value="1">Annually</option>
+            <option value="2">Semi-Annually</option>
+            <option value="4">Quarterly</option>
+            <option value="6">Bi-Monthly</option>
+            <option value="12">Monthly</option>
+            <option value="26">Bi-Weekly</option>
+            <option value="52">Weekly</option>
+            <option value="365">Daily</option>
+        </select>
+        <button type="submit" >ABC</button>
+        <button type="submit">Calculate</button>
+    </form>
+</div>
+
+</body>
+</html>
