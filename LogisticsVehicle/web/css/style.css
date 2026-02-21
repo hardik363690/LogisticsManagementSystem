@@ -1,0 +1,153 @@
+/* --- 1. Modern Google Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* --- 2. Base & Typography --- */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: #f3f4f6; /* Light Gray */
+    color: #1f2937; /* Dark Text */
+    display: flex;
+}
+
+h1, h2, h3 { color: #1f2937; font-weight: 600; }
+h1 { margin-top: 0; font-size: 28px; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
+
+/* --- 3. Sleek Sidebar --- */
+.sidebar {
+    width: 260px;
+    background-color: #111827; /* Deep Slate/Black */
+    color: white;
+    height: 100vh;
+    position: fixed;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    text-align: center; margin: 0; padding: 25px 0; 
+    background-color: rgba(0,0,0,0.2); font-size: 22px; letter-spacing: 1px;
+}
+
+.sidebar a {
+    display: block; padding: 16px 25px; color: #d1d5db; 
+    text-decoration: none; font-size: 15px; border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #1f2937; color: white; border-left: 4px solid #2563eb;
+}
+
+/* --- 4. Main Content Area --- */
+.main-content {
+    margin-left: 260px;
+    padding: 30px 40px;
+    width: calc(100% - 260px);
+    box-sizing: border-box;
+}
+
+/* --- 5. Floating KPI Cards --- */
+.kpi-grid {
+    display: flex; gap: 24px; margin-bottom: 40px; margin-top: 20px;
+}
+
+.kpi-card {
+    background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    flex: 1; border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+.kpi-card h3 { margin: 0 0 10px 0; color: #6b7280; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+.kpi-card .number { font-size: 36px; font-weight: 700; color: #2563eb; }
+
+/* --- 6. Clean Data Tables --- */
+table { 
+    width: 100%; border-collapse: collapse; background: #ffffff; 
+    border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid #e5e7eb;
+}
+th, td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+th { background-color: #f9fafb; color: #6b7280; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;}
+tr { transition: background-color 0.2s ease; }
+tr:hover { background-color: #f3f4f6; } 
+
+/* --- 7. Upgraded Status Pills --- */
+.status-pill { 
+    padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.status-available { background-color: #d1fae5; color: #065f46; border: 1px solid #10b981; } 
+.status-on-trip { background-color: #dbeafe; color: #1e40af; border: 1px solid #3b82f6; }  
+.status-in-shop { background-color: #fee2e2; color: #991b1b; border: 1px solid #ef4444; }  
+.status-expired { background-color: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }  
+
+/* --- 8. Forms & Modern Inputs --- */
+.form-card { 
+    background: #ffffff; padding: 30px; border-radius: 12px; margin-bottom: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e5e7eb;
+}
+
+.form-card h3 { margin-top: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 15px; margin-bottom: 20px;}
+
+input, select { 
+    padding: 12px 15px; margin: 10px 0 20px 0; width: 100%; 
+    border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;
+    font-family: 'Inter', sans-serif; font-size: 14px; color: #1f2937;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none; border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); 
+}
+
+/* --- 9. Interactive Buttons --- */
+button { 
+    padding: 12px 24px; background-color: #2563eb; color: white; 
+    border: none; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+}
+
+button:hover { background-color: #1d4ed8; transform: translateY(-1px); }
+button:active { transform: translateY(1px); }
+
+/* Update these specific sections in your style.css */
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    height: 100vh;
+    overflow-y: auto; /* Enables vertical scrolling for the whole page */
+    background-color: #f8fafc;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+/* Keeps the table header at the top while you scroll the list */
+table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #34495e;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.status-pill.available { background-color: #e6fffa; color: #2c7a7b; }
+.status-pill.on-trip { background-color: #ebf8ff; color: #2b6cb0; }
+.status-pill.in-shop { background-color: #fff5f5; color: #c53030; }

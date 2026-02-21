@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <display-name>LogisticsVehicleManagement</display-name>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.fleet.controllers.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DispatchServlet</servlet-name>
+        <servlet-class>com.fleet.controllers.DispatchServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DispatchServlet</servlet-name>
+        <url-pattern>/DispatchServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FuelServlet</servlet-name>
+        <servlet-class>com.fleet.controllers.FuelServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FuelServlet</servlet-name>
+        <url-pattern>/FuelServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+    <servlet-name>DriverServlet</servlet-name>
+    <servlet-class>com.fleet.controllers.DriverServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>DriverServlet</servlet-name>
+    <url-pattern>/DriverServlet</url-pattern>
+</servlet-mapping>
+    <servlet>
+        <servlet-name>VehicleServlet</servlet-name>
+        <servlet-class>com.fleet.controllers.VehicleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VehicleServlet</servlet-name>
+        <url-pattern>/VehicleServlet</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.html</welcome-file>
     </welcome-file-list>
 </web-app>
